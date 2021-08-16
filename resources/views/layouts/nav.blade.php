@@ -50,27 +50,27 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a class="dropdown-item font-weight-bold" href="#">
+                                            <a class="dropdown-item font-weight-bold" href="{{ route('admincategory') }}">
                                                 Kategori
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item font-weight-bold" href="#">
+                                            <a class="dropdown-item font-weight-bold" href="{{ route('adminbrand') }}">
                                                 Brand
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item font-weight-bold" href="#">
+                                            <a class="dropdown-item font-weight-bold" href="{{ route('adminpengguna') }}">
                                                 Pengguna
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item font-weight-bold" href="#">
+                                            <a class="dropdown-item font-weight-bold" href="{{ route('adminverification') }}">
                                                 Verifikasi Akun
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item font-weight-bold" href="#">
+                                            <a class="dropdown-item font-weight-bold" href="{{ route('adminlelangmasuk') }}">
                                                 Daftar Lelang
                                             </a>
                                         </li>

@@ -18,7 +18,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('categoryupdate') }}" method="post">
+                        <form action="{{ route('admincategoryupdate') }}" method="post">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label class="font-weight-bold" for="type">Car Type</label>

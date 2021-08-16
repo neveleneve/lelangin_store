@@ -14,6 +14,11 @@
                 </div>
             </div>
         </div>
+        <div class="row mb-3">
+            <div class="col-12">
+                <a href="#" class="btn btn-sm btn-primary btn-block">Add Category</a>
+            </div>
+        </div>
         @if (Session::has('alert1'))
             <div class="row">
                 <div class="col-12">
@@ -43,11 +48,11 @@
                             </h5>
                         </div>
                         <div class="card-footer text-center">
-                            <a href="{{ route('categoryview', ['id' => str_replace(' ', '-', strtolower($item->type))]) }}"
+                            <a href="{{ route('admincategoryview', ['id' => str_replace(' ', '-', strtolower($item->type))]) }}"
                                 class="btn btn-sm btn-warning font-weight-bold">
                                 <i class="fas fa-eye"></i>
                             </a>
-                            <a href="{{ route('categoryedit', ['id' => $item->id]) }}"
+                            <a href="{{ route('admincategoryedit', ['id' => $item->id]) }}"
                                 class="btn btn-sm btn-primary font-weight-bold">
                                 <i class="fas fa-edit"></i>
                             </a>

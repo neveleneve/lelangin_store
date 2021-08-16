@@ -50,14 +50,21 @@ class AdminController extends Controller
 
     public function cateupdate(Request $data)
     {
-        // dd($data->all());
         Category::where('id', $data->id)->update([
             'type' => $data->type
         ]);
-        return redirect(route('category'))->with([
+        return redirect(route('admincategory'))->with([
             'alert1' => 'Great!',
             'alert2' => 'Data successfully updated.',
             'color' => 'success'
+        ]);
+    }
+    
+    public function cate()
+    {
+        $data = Category::get();
+        return view('administrator.category', [
+            'data' => $data
         ]);
     }
 }
