@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
 use App\Category;
 use App\User;
 use Illuminate\Http\Request;
@@ -40,6 +41,15 @@ class AdminController extends Controller
         }
     }
 
+    // Category Pages
+    public function cate()
+    {
+        $data = Category::get();
+        return view('administrator.category', [
+            'data' => $data
+        ]);
+    }
+
     public function cateedit($id)
     {
         $data = Category::where('id', $id)->get();
@@ -59,11 +69,20 @@ class AdminController extends Controller
             'color' => 'success'
         ]);
     }
-    
-    public function cate()
+
+    // Brand Pages
+    public function brands()
     {
-        $data = Category::get();
-        return view('administrator.category', [
+        $data = Brand::get();
+        return view('administrator.brand', [
+            'data' => $data
+        ]);
+    }
+
+    public function brandsedit($id)
+    {
+        $data = Brand::where('id', $id)->get();
+        return view('administrator.brand_edit', [
             'data' => $data
         ]);
     }

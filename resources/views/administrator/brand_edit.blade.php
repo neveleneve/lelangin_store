@@ -5,8 +5,8 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-sm bg-dark">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}" class="text-light">Dashboard</a></li>
-                <li class="breadcrumb-item"> <a href="{{ route('category') }}" class="text-light">Categories</a></li>
-                <li class="breadcrumb-item"> <a href="{{ route('admincategory') }}" class="text-light">Administrator</a>
+                <li class="breadcrumb-item"> <a href="{{ route('brand') }}" class="text-light">Brands</a></li>
+                <li class="breadcrumb-item"> <a href="{{ route('adminbrand') }}" class="text-light">Administrator</a>
                 </li>
                 <li class="breadcrumb-item active">Edit</li>
             </ol>
@@ -15,27 +15,27 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('admincategoryupdate') }}" method="post">
+                        <form action="{{ route('adminbrandupdate') }}" method="post">
                             {{ csrf_field() }}
                             <div class="form-group">
-                                <label class="font-weight-bold" for="type">Category's Name</label>
+                                <label class="font-weight-bold" for="type">Brand's Name</label>
                                 <input type="text" name="type" id="type" class="form-control"
-                                    value="{{ $data[0]['type'] }}">
+                                    value="{{ $data[0]['brand'] }}" required>
                                 <input type="hidden" name="id" value="{{ $data[0]['id'] }}">
                             </div>
                             <div class="form-group">
-                                <label class="font-weight-bold" for="type">Category's Image</label>
+                                <label class="font-weight-bold" for="type">Brand's Image</label>
                                 <br>
-                                @if (file_exists('images/cat/' . strtolower($data[0]->type) . '.png'))
+                                @if (file_exists('images/brands/' . strtolower($data[0]->brand) . '.png'))
                                     <img class="img-fluid img-thumbnail"
-                                        src="{{ file_exists('images/cat/' . strtolower($data[0]->type) . '.png') ? asset('images/cat/' . strtolower($data[0]->type) . '.png') : asset('images/brands/DEFAULT.png') }}"
+                                        src="{{ file_exists('images/brands/' . strtolower($data[0]->brand) . '.png') ? asset('images/brands/' . strtolower($data[0]->brand) . '.png') : asset('images/brands/DEFAULT.png') }}"
                                         alt="" style="max-width: 200px">
                                     <br>
                                     <a class="text-dark" href="">Delete Images</a>
                                 @else
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input btn-outline-dark" id="gambar">
+                                            <input type="file" class="custom-file-input btn-outline-dark" id="gambar" required>
                                             <label class="custom-file-label" for="gambar">Choose Image</label>
                                         </div>
                                     </div>
@@ -44,7 +44,7 @@
                             </div>
                             <div class="row justify-content-end">
                                 <div class="col-2">
-                                    <a class="btn btn-danger btn-block" href="{{ route('admincategory') }}">Back</a>
+                                    <a class="btn btn-danger btn-block" href="{{ route('adminbrand') }}">Back</a>
                                 </div>
                                 <div class="col-2">
                                     <button type="submit" onclick="return confirm('Update Data?')"

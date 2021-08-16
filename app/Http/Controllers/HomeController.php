@@ -34,7 +34,12 @@ class HomeController extends Controller
 
     public function categoryview($id)
     {
-        # code...
+        // perbaikan query
+        // pengambilan data dengan kategori mobil yang sesuai
+        $data = Category::where('type', $id)->get();
+        return view('category', [
+            'data' => $data
+        ]);
     }
 
     public function brand()
