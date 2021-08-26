@@ -9,23 +9,24 @@ Route::get('/profile/{id}', 'HomeController@profile')->name('userprofile');
 Route::get('/categories', 'HomeController@category')->name('category');
 Route::get('/category/{name}', 'HomeController@categoryview')->name('categoryview');
 Route::get('/brands', 'HomeController@brand')->name('brand');
-Route::get('/brand/{name}', 'HomeController@brand')->name('brandview');
+Route::get('/brand/{name}', 'HomeController@brandview')->name('brandview');
 Route::get('/search', 'HomeController@search')->name('search');
 Auth::routes(['verify' => true]);
 // admin
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {
+    // categories
     Route::get('/administrator/categories', 'AdminController@cate')->name('admincategory');
     Route::get('/administrator/categories/edit/{id}', 'AdminController@cateedit')->name('admincategoryedit');
     Route::post('/administrator/categories/edit', 'AdminController@cateupdate')->name('admincategoryupdate');
-
+    // brand
     Route::get('/administrator/brands', 'AdminController@brands')->name('adminbrand');
     Route::get('/administrator/brands/edit/{id}', 'AdminController@brandsedit')->name('adminbrandedit');
     Route::post('/administrator/brands/edit', 'AdminController@brandsupdate')->name('adminbrandupdate');
-    
+    // pengguna
     Route::get('/administrator/users', 'AdminController@userlist')->name('adminpengguna');
-    
+    // verifikasi
     Route::get('/administrator/verifications', 'AdminController@verification')->name('adminverification');
-    
+    // lelang
     Route::get('/administrator/lelang', 'AdminController@lelangmasuk')->name('adminlelangmasuk');
 });
 // user

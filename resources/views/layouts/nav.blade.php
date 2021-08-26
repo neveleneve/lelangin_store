@@ -85,7 +85,7 @@
                                         </a>
                                     </li>
                                 @else
-                                    @if (Auth::user()->kyc == 0 && kycstatus() == 0)
+                                    @if (Auth::user()->kyc == 0 && kycstatus(Auth::user()->username) == 0)
                                         <li>
                                             <a class="dropdown-item font-weight-bold"
                                                 href="{{ route('kycverification') }}">

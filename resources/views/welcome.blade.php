@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         @include('layouts.bottom_navbar')
-        <div class="row mb-5">
+        <div class="row mb-3">
             <div class="col-12">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">

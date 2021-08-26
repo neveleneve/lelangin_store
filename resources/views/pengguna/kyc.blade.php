@@ -7,7 +7,7 @@
                 <div class="jumbotron jumbotron-fluid bg-dark">
                     <div class="container text-center text-white">
                         <h1 class="display-4 font-weight-bold">
-                            KYC Verification
+                            Verifikasi Data Diri
                         </h1>
                     </div>
                 </div>

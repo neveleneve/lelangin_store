@@ -6,7 +6,7 @@
                     href="{{ route('dashboard') }}">Beranda</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{ Request::is('category*') ? 'font-weight-bold' : null }}"
+                <a class="nav-link text-white {{ Request::is('categories*') || Request::is('category*') ? 'font-weight-bold' : null }}"
                     href="{{ route('category') }}">Kategori</a>
             </li>
             <li class="nav-item">

@@ -21,12 +21,16 @@ class HomeController extends Controller
 
     public function category()
     {
-        $data = DB::table('categories')
-            ->join('item_details', 'item_details.id_category', '=', 'categories.id')
-            ->select('categories.type', DB::raw('COUNT(item_details.code_item) AS jumlah'))
-            ->groupBy('categories.type')
-            ->orderBy('categories.type')
-            ->get();
+        // query untuk tampilkan kategori dengan mobil yang tersedia
+        // $data = DB::table('categories')
+        //     ->join('item_details', 'item_details.id_category', '=', 'categories.id')
+        //     ->select('categories.type', DB::raw('COUNT(item_details.code_item) AS jumlah'))
+        //     ->groupBy('categories.type')
+        //     ->orderBy('categories.type')
+        //     ->get();
+
+        // query untuk tampilkan semua kategori
+        $data = Category::get();
         return view('category', [
             'data' => $data
         ]);
@@ -36,21 +40,29 @@ class HomeController extends Controller
     {
         // perbaikan query
         // pengambilan data dengan kategori mobil yang sesuai
-        $data = Category::where('type', $id)->get();
-        return view('category', [
-            'data' => $data
+        $data = DB::table('item_details')
+            ->join('items', 'item_details.code_item', '=', 'items.code_item')
+            ->select('items.nama', 'items.views')
+            ->get();
+        // $data = Category::where('type', $id)->get();
+        return view('category_view', [
+            'data' => $data,
+            'nama' => $id
         ]);
     }
 
     public function brand()
     {
+        // query untuk tampilkan brand dengan mobil yang tersedia
+        // $data = DB::table('brands')
+        //     ->join('item_details', 'item_details.id_brand', '=', 'brands.id')
+        //     ->select('brands.brand', DB::raw('COUNT(item_details.code_item) AS jumlah'))
+        //     ->groupBy('brands.brand')
+        //     ->orderBy('brands.brand')
+        //     ->get();
 
-        $data = DB::table('brands')
-            ->join('item_details', 'item_details.id_brand', '=', 'brands.id')
-            ->select('brands.brand', DB::raw('COUNT(item_details.code_item) AS jumlah'))
-            ->groupBy('brands.brand')
-            ->orderBy('brands.brand')
-            ->get();
+        // query untuk tampilkan semua brand
+        $data = Brand::get();
         return view('brand', [
             'data' => $data
         ]);

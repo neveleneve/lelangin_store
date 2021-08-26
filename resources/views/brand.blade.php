@@ -8,7 +8,7 @@
                 <div class="jumbotron jumbotron-fluid bg-dark">
                     <div class="container text-center text-white">
                         <h1 class="display-4 font-weight-bold">
-                            Brand
+                            BRAND
                         </h1>
                     </div>
                 </div>
