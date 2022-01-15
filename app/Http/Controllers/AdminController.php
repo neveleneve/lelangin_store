@@ -60,6 +60,9 @@ class AdminController extends Controller
 
     public function cateupdate(Request $data)
     {
+        if (isset($data->gambar)) {
+            echo 'ada';
+        }
         Category::where('id', $data->id)->update([
             'type' => $data->type
         ]);
